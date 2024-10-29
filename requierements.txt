@@ -1,0 +1,59 @@
+This assignment accomplishes two goals. It demonstrates how neural networks can be used in forecasting and how they can be used in practical applications involving text (e.g., completing a search request on Google).
+
+Using a large set of texts for training, build an RNN that suggests the next word in a sentence (sequential learning). Consider the entire sentence when completing the sentence instead of words by themselves.
+
+Complete the steps below. Then, write a comprehensive technical report as a Python Jupyter notebook to include all code, code comments, all outputs, plots, and analysis. Make sure the project documentation contains a) Problem statement, b) Algorithm of the solution, c) Analysis of the findings, and d) References.
+
+Identify a suitable data set for training.
+
+Describe your approach to implementing a many-to-one sequence mapper.
+
+Prepare the data set:
+
+Remove punctuation.
+Split strings into lists of individual words.
+Convert the individual words into integers (e.g., using Keras tokenizer).
+Create feature and labels from sequences:
+
+Set the number of words as a parameter.
+Select a subset of the data to be used as a training set.
+Decide on a training method, for example:
+Use words 1 through n words as features and the n+1 word as the label.
+
+Use words 2 through n+1 as features and then the n+2 word as the label.
+
+Use words 3 through n+2 as features and then the n+3 word as the label.
+
+Etc.
+
+Note: The performance of the RNN is proportional to the amount of data.
+
+Build a long short-term memory (LSTM) model with embedding and dense layers (use the Keras Sequential API):
+
+An Embedding, which maps each input word to a 100-dimensional vector. The embedding can use pretrained weights (more in a second), which we supply in the weights parameter; trainable can be set False if we don't want to update the embeddings.
+A Masking layer, to mask any words that do not have a pretrained embedding, which will be represented as all zeros. This layer should not be used when training the embeddings.
+The heart of the network: a layer of LSTM cells with dropout to prevent overfitting. Since we are only using one LSTM layer, it does not return the sequences; for using two or more layers, make sure to return sequences.
+A fully connected Dense layer with relu. This adds additional representational capacity to the network.
+A Dropout layer, to prevent overfitting to the training data.
+A Dense fully connected output layer, this produces a probability for every word in the vocab using softmax.
+Compile the model with the Adam optimizer.
+
+Load in the pretrained embeddings; choose embeddings from the GloVe algorithm, which has been trained on Wikipedia texts. Refer to "GloVe: Global Vectors for Word Representation," located in the topic Resources. Assign a 100-dimensional vector to each word in the vocab. If the word has no pretrained embedding, then this vector will be all zeros.
+
+Explore the embeddings using cosine similarity between two vectors.
+
+Train the model to predict the next word in the sequence using:
+
+Model Checkpoint: saves the best model (as measured by validation loss) on disk for using best model.
+Early Stopping: halts training when validation loss is no longer decreasing.
+Note: The training may take a considerable amount of time, possibly a few hours.
+
+Make predictions by passing in a starting sequence (i.e., an incomplete sentence) and complete it.
+
+Summarize the overall functioning of the RNN and its accuracy.
+
+APA style is not required, but solid academic writing is expected.
+
+This assignment uses a rubric. Please review the rubric prior to beginning the assignment to become familiar with the expectations for successful completion.
+
+You are not required to submit this assignment to LopesWrite.  
