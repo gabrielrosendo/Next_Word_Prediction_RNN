@@ -1,19 +1,19 @@
-This assignment accomplishes two goals. It demonstrates how neural networks can be used in forecasting and how they can be used in practical applications involving text (e.g., completing a search request on Google).
+TODO:
+- Model still not learning pattern/learning very slowly
+    - Increase subset size: 
+    change line data = data[:1000000] -> Tried this but if dataset is too large code does not run
+                        -> Also makes epochs really slow
+                -> Try to make subset larger without those issues to better accuracy
+    - Change model parameters
+- Add garbage collection to make it run faster?
+- Check how data was prepared and proccessed -> Might be wrong
+- Experiment with larger LSTM/GRU units and bidirectional layers.
+- add regularization and early stopping.
 
-Using a large set of texts for training, build an RNN that suggests the next word in a sentence (sequential learning). Consider the entire sentence when completing the sentence instead of words by themselves.
 
-Complete the steps below. Then, write a comprehensive technical report as a Python Jupyter notebook to include all code, code comments, all outputs, plots, and analysis. Make sure the project documentation contains a) Problem statement, b) Algorithm of the solution, c) Analysis of the findings, and d) References.
 
-Identify a suitable data set for training.
 
-Describe your approach to implementing a many-to-one sequence mapper.
-
-Prepare the data set:
-
-Remove punctuation.
-Split strings into lists of individual words.
-Convert the individual words into integers (e.g., using Keras tokenizer).
-Create feature and labels from sequences:
+Requirements for assignment:
 
 Set the number of words as a parameter.
 Select a subset of the data to be used as a training set.
